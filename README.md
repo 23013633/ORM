@@ -23,13 +23,32 @@ Enter the code for admin.py and models.py
 Execute Django admin and create details for 10 books
 
 ## PROGRAM
+```
+admin.py
 
-Include your code here
+from django.contrib import admin
+from .models import Employee,EmployeeAdmin
+admin.site.register(Employee,EmployeeAdmin)
+
+models.py
+from django.db import models
+from django.contrib import admin
+class Employee (models.Model):
+    eid=models.CharField(max_length=20,primary_key=True)
+    name=models.CharField(max_length=100)
+    salary=models.IntegerField()
+    age=models.IntegerField()
+    email=models.EmailField()
+ 
+class EmployeeAdmin(admin.ModelAdmin):
+    list_display=('eid','name','salary','age','email')
+
+```
+
+
 
 ## OUTPUT
-
-Include the screenshot of your admin page.
-
+![Screenshot 2024-03-13 211731](https://github.com/23013633/ORM/assets/150005961/0b5a2b90-8c0e-48d8-9f37-00c8a9733c3d)
 
 ## RESULT
 Thus the program for creating a database using ORM hass been executed successfully
